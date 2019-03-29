@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 struct timeval timeval1, timeval2, timeval_result;
 struct timezone mytimezone = {1, 1};
@@ -68,6 +69,6 @@ int main(int argc, char *argv[], char *env[])
 
     timeval_subtract(&timeval_result, &timeval2, &timeval1);
 
-    printf("Forked, executed and destroyed %i processes in %i.%i seconds.\n",
+    printf("Forked, executed and destroyed %i processes in %lu.%lu seconds.\n",
            number_of_forks, timeval_result.tv_sec, timeval_result.tv_usec);
 }
